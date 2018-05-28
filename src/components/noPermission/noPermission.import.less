@@ -1,0 +1,81 @@
+.noPermission {
+	height: 100%;
+	width: 100%;
+}
+.noPermission__bg {
+	background-image: url("/oneanalytix/assets/404_background.jpg");
+	background-position: right bottom;
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 100%;
+	background-color: @white;
+}
+
+.noPermission__nav {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: @nav-height;
+	line-height: @nav-height;
+	vertical-align: middle;
+	z-index: @zindex-navbar;
+	background-color: @primary-color;
+	text-align: center;
+	// .logo {
+	// 	line-height: @nav-height;
+	// 	.center-align();
+	// }
+	img {
+		height: 30px;
+		display: inline-block;
+	}
+}
+
+.noPermission__msgBox {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translateY(-100%);	
+	h1 {
+		font-size: 3.5em;
+		margin-bottom: 10px;
+	}
+	h2 {
+		font-size: 2.5em;
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
+	h3 {
+		font-size: 1.5em;
+	}
+	a {
+		text-decoration: underline;
+		color: @primary-color;
+	}
+}
+
+.tabletOnly({
+	.noPermission__msgBox {
+		transform: translate(50%, -100%);
+	}
+});
+
+.mobileOnly({
+	.noPermission__msgBox {
+		right: 0px;
+		left: 0px;
+		padding-left: 30px;
+		padding-right: 30px;
+		h1 {
+			font-size: 2em;
+		}
+		h2 {
+			font-size: 1.5em;
+		}
+		h3 {
+			font-size: 1em;
+		}
+	}
+});

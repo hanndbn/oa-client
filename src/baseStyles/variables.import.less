@@ -1,0 +1,170 @@
+/*-------------------
+     Size definitions
+--------------------*/
+/* This is the single variable that controls them all */
+@emSize   : 13px;
+
+/* Useful for elements that should scale with font-size*/
+@relative1px  : unit( (1 / @emSize), em);
+@relative2px  : unit( (2 / @emSize), em);
+@relative3px  : unit( (3 / @emSize), em);
+@relative4px  : unit( (4 / @emSize), em);
+@relative5px  : unit( (5 / @emSize), em);
+@relative6px  : unit( (6 / @emSize), em);
+@relative7px  : unit( (7 / @emSize), em);
+@relative8px  : unit( (8 / @emSize), em);
+@relative9px  : unit( (9 / @emSize), em);
+@relative10px : unit( (10 / @emSize), em);
+@relative11px : unit( (11 / @emSize), em);
+@relative12px : unit( (12 / @emSize), em);
+@relative13px : unit( (13 / @emSize), em);
+@relative14px : unit( (14 / @emSize), em);
+@relative15px : unit( (15 / @emSize), em);
+@relative16px : unit( (16 / @emSize), em);
+@relative17px : unit( (17 / @emSize), em);
+@relative18px : unit( (18 / @emSize), em);
+@relative19px : unit( (19 / @emSize), em);
+@relative20px : unit( (20 / @emSize), em);
+@relative21px : unit( (21 / @emSize), em);
+@relative22px : unit( (22 / @emSize), em);
+@relative23px : unit( (23 / @emSize), em);
+@relative24px : unit( (24 / @emSize), em);
+@relative25px : unit( (25 / @emSize), em);
+@relative26px : unit( (26 / @emSize), em);
+@relative27px : unit( (27 / @emSize), em);
+@relative28px : unit( (28 / @emSize), em);
+@relative29px : unit( (29 / @emSize), em);
+@relative30px : unit( (30 / @emSize), em);
+@relative35px : unit( (35 / @emSize), em);
+
+
+/*-------------------
+     Typography
+--------------------*/
+// @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+@body-font-family: 'Helvetixca Neue', Helvetica, Arial, sans-serif;
+@global-font-size: @emSize;
+
+/*-------------------
+     Color
+--------------------*/
+@light-gray: #e6e6e6;
+@medium-gray: #cacaca;
+@gray: #9c9c9c;
+@dark-gray: #8a8a8a;
+@darker-gray: #555;
+@black: #0a0a0a;
+@white: #fefefe;
+
+// @primary-color: #082867;
+// @primary-color: #1a3873; //logo color
+@primary-color: #293846; //wireframe color
+// @secondary-color: #355EAF;
+@secondary-color: #009D92;
+
+@body-background: @white;
+@container-background: @white;
+@innercontainer-background: @light-gray;
+
+@body-font-color: lighten(@black, 15%);
+@body-font-color-light: lighten(@body-font-color, 25%);
+@body-font-color-lighter: lighten(@body-font-color, 50%);
+@body-font-color-dark: @black;
+
+@hover-white-bg-color: lighten(@light-gray, 5%);
+
+/* Text color */
+@text-color-1: #ffffff;
+@text-color-2: #000;
+@text-color-3: #28578b;
+
+/* Background color */
+@background-color-1: #eeeeee;
+@background-color-2: #009d92;
+
+@global-background: #ffbc00;
+
+
+@global-border-btn: #fde300;
+@global-background-btn: #6c6c6c29;
+@global-border-btn-bold: rgba(232, 232, 84, 0.16);
+
+/*-------------------
+     Layout
+--------------------*/
+@global-radius: 4px;
+// @global-shadow: 0px 0.5px 2px 0px rgba(0,0,0,0.15);
+@global-shadow: none; //flat design
+@global-padding: @relative15px;
+@global-border: 1px solid @medium-gray;
+@global-border-2: 2px solid @dark-gray;
+@global-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
+
+/*-------------------
+     Dropdowns
+--------------------*/
+@dropdown-box-shadow: 0px 0.5px 3px 1px rgba(0,0,0,0.15);
+
+/*-------------------
+     Form Input
+--------------------*/
+@input-vertical-padding: @relative11px;
+@input-horizontal-padding: @relative14px;
+@input-line-height: 1.2142em; //follows senmantic UI defaults
+@input-color: @gray;
+@input-shadow: inset 0 1px 1px rgba(0,0,0,.075); //inner shadow for inputs
+@input-highlight-color: lighten(@primary-color, 40%); //todo - improve on this color
+
+/*-------------------
+     Table
+--------------------*/
+@table-vertical-padding: @relative8px;
+@table-horizontal-padding: @relative14px;
+
+@table-head-background: @light-gray;
+@table-head-color: @body-font-color;
+@table-hover-color: @hover-white-bg-color;
+@table-row-highlight-background: @white;
+@table-row-highlight-color: @secondary-color;
+
+@table-background-even: #eeeeee;
+@table-background-odd: #ffffff;
+
+/*-------------------
+     Transitions
+--------------------*/
+@default-duration: 0.3s;
+@default-easing: ease;
+
+/*-------------------
+     Z-index
+--------------------*/
+@zindex-base: 0;
+@zindex-L1: 50;
+@zindex-L2: 100;
+@zindex-navbar: 500;
+@zindex-modal: 1000;
+
+/*-------------------
+     Breakpoints
+--------------------*/
+@mobile-bp          : 480px; //currently not used as we set min-width at tablet-bp
+@tablet-bp          : 768px;
+@computer-bp        : 992px;
+@large-monitor-bp   : 1200px;
+@wide-screen-bp     : 1920px;
+
+//Ensure media queries don't overlap when required, provide a maximum
+@mobile-bp-max      : (@tablet-bp - 1);
+@tablet-bp-max      : (@computer-bp - 1);
+@computer-bp-max    : (@large-monitor-bp - 1);
+@large-monitor-bp-max : (@wide-screen-bp - 1);
+
+
+/*------------------------
+     Top Navigation
+-------------------------*/
+@nav-height: 55px;
+@nav-background: @white;
+@nav-color: @gray;
+@nav-active-color: @primary-color;

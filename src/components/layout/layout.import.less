@@ -1,0 +1,138 @@
+main {
+	z-index: @zindex-base;
+	//padding-top: @nav-height;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	//min-width: @tablet-bp;
+	overflow-x: hidden;
+}
+
+.main-wrapper {
+	z-index: @zindex-base;
+	padding: @global-padding*2 0px;
+	height: 100%;
+	position: relative;
+	width: 100%;
+	//overflow-y: scroll;
+	.tabletOnly({
+		padding: @global-padding 0px;
+	});
+	// currently not used as we set min-width at tablet-bp
+	// .mobileOnly({
+	// 	padding: 10px 0px;
+	// });
+}
+
+.main-component {
+	display: flex;
+	height: 100%;
+	overflow: hidden;
+	padding-top: @nav-height;
+
+	flex-direction: row;
+	flex-grow: 1;
+	.sidebar {
+		flex: 0 0 200px;
+		order: -1;
+	}
+	.main {
+		flex: 1;
+	}
+}
+
+.main-content {
+  position: relative;
+  display: inline-block;
+  //width: 83%;
+}
+
+.main-content.full-width {
+  //width: 100%;
+}
+
+.routerTransition-enter {
+  opacity: 0.01;
+  left: 50px;
+}
+
+.routerTransition-enter.routerTransition-enter-active {
+  opacity: 1;
+  left: 0px;
+  transition: all 300ms ease-out;
+}
+ .routerTransition-leave {
+   opacity: 1;
+ }
+ .routerTransition-leave.routerTransition-leave-active {
+   opacity: 0.01;
+ }
+
+.btn-primary{
+	//color: #fff;
+	//background-color: #f0ad4e;
+	//border-color: #eea236;
+	//background-color: @global-background-btn;
+	//border-color: @global-border-btn-bold;
+	//color: black;
+}
+
+.btn-primary:hover{
+	//color: #fff;
+	//background-color: #f0ad4e;
+	//border-color: #eea236;
+	background-color: @global-background-btn;
+	//border-color: @global-border-btn-bold;
+}
+
+.card-header {
+	//background-color: #dfded6;
+	font-size: 15px;
+	background-color: #f0d997;
+	color: #413d34;
+	box-shadow: 1px 0px 1px 1px grey;
+}
+table th{
+	background: #f0d997;
+}
+
+//.sidebar{
+//	border-right: 1px solid white;
+//	background: @global-background;
+//	.nav .nav-link, .nav .nav-item {
+//		color: black !important;
+//		font-weight: bold;
+//	}
+//	.nav .nav-link.active{
+//		background: #f0d997 !important;
+//	}
+//
+//}
+
+
+.sidebar .nav .nav-item .nav-link:hover, .sidebar .nav .nav-item .navbar .dropdown-toggle:hover, .navbar .sidebar .nav .nav-item .dropdown-toggle:hover{
+	//background: #f0d997 !important;
+}
+
+.header-fixed .app-header{
+
+	border-bottom: 1px solid #ffbc00;
+	//box-shadow: 1px -1px 2px 2px #898585;
+}
+
+
+.app-header.navbar{
+	border-bottom: none;
+}
+
+.app-header.navbar .navbar-brand{
+	border-bottom: none;
+	height: 54px;
+}
+
+.cover-div{
+	position: relative;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}

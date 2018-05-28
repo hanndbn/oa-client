@@ -1,0 +1,90 @@
+.profile-menu-component {
+    position: absolute;
+    z-index: 2;
+    width: 320px;
+    height: auto;
+    padding: 10px;
+    border: @global-border;
+    border-radius: 3px;
+    background: @white;
+    right: 0px;
+    top: @nav-height;
+    box-shadow: @global-box-shadow;
+    text-align: center;
+
+    hr {
+        margin-top: 5px;
+        background: gray;
+    }
+
+    .loader-box {
+        border-radius: 3px;
+    }
+}
+
+.login-label {
+    width: 320px;
+    margin: 5px 0px 5px -10px;
+    height: 27px;
+    vertical-align: middle;
+    line-height: 29px;
+    font-weight: bold;
+    background: gray;
+}
+
+.login-input {
+    display: inline-block;
+    width: 92%;
+    padding: 8px 0px 8px 0px;
+
+    input {
+        height: 36px;
+        border-radius: 3px;
+        border: 1px solid gray;
+        background: white;
+    }
+}
+
+.login-btn, .login-cancel-btn {
+    display: inline-block;
+    height: 26px;
+    width: 58%;
+    line-height: 26px;
+    border-radius: 13px;
+    font-weight: bold;
+}
+
+.login-cancel-btn {
+    float: right;
+}
+
+.login-error-msg {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: white;
+    color: red;
+    text-align: center;
+}
+
+.w3-animate-fading{animation:fading 0.3s linear}@keyframes fading{0%{opacity:0}100%{opacity:1}}
+
+.forgot-link {
+    font-size: 11px;
+    text-decoration: underline;
+    color: gray;
+}
+
+.logout-btn {
+    height: 26px;
+    width: 58%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    line-height: 26px;
+    border-radius: 13px;
+    font-weight: bold;
+    background: @white;
+    border: @global-border;
+    cursor: pointer;
+}

@@ -1,0 +1,259 @@
+//TODO: fixed topNav mobile view (<480px)
+.topNav {
+	z-index: @zindex-navbar;
+	height: @nav-height;
+	background-color: @nav-background;
+	display: table;
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	border-bottom: @global-border;
+	box-shadow: @global-shadow;
+	// min-width: @mobile-bp;
+}
+
+.topNav__left, .topNav__center, .topNav__right {
+	vertical-align: middle;
+	padding-left: @global-padding;
+	padding-right: @global-padding;
+ }
+
+.topNav__left {
+ 	display: table-cell;
+ }
+
+.topNav__center, .topNav__right {
+ 	opacity: 0;
+ 	visibility: hidden;
+ 	display: table-cell;
+ 	&.authenticated {
+ 		opacity: 1;
+ 		visibility: visible;
+ 		transition: all 1s ease-in;
+	}
+ }
+
+.topNav__left, .topNav__right {
+ 	width: 200px;
+}
+
+.topNav__logo {
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 0px;
+ 	right: auto;
+ 	line-height: @nav-height;
+ 	text-align: left;
+ 	padding-left: 0px;
+ 	padding-right: 0px;
+	>img {
+		height: 30px;
+		transform: translateX(-50%);
+	}
+	.min-logo {
+		display: none;
+		visibility: hidden;
+	}
+	.full-logo {
+		display: inline-block;
+		vertical-align: middle;
+		visibility: visible;
+	}
+}
+
+.topNav__logo.authenticated {
+	left: 0%;
+	padding-left: @global-padding;
+ 	padding-right: @global-padding;
+ 	transition: all 0.8s ease-out;
+	>img {
+		transform: translateX(0);
+		transition: all 0.8s ease-out;
+	}
+	.tabletAndBelow({
+		.min-logo {
+			display: inline-block;
+			visibility: visible;
+		}
+		.full-logo {
+			display: none;
+			visibility: hidden;
+		}
+	});
+}
+
+.topNav__menu {
+	.center-align();
+	display: table;
+	margin-bottom: 0px;
+	line-height: @nav-height;
+	// width: 100%;
+	li {
+		list-style: none;
+		display: table-cell;
+		vertical-align: middle;
+	}
+	li > a {
+		display: block;
+		padding-left: @global-padding*1.5;
+		padding-right: @global-padding*1.5;
+		font-size: 1.1em;
+		color: @nav-color;
+		transition: color @default-duration @default-easing;
+		&:hover, &:active {
+			color: @nav-active-color;
+		}
+	}
+	li > a.active {
+		color: @nav-active-color;
+	}
+}
+
+.topNav__right {
+	text-align: right;
+	> a {
+		display: inline-block;
+		padding-left: @global-padding;
+		padding-right: @global-padding;
+		border-left: @global-border;
+		color: @nav-color;
+		transition: color @default-duration @default-easing;
+		&:hover, &:active {
+			color: @nav-active-color;
+		}
+	}
+}
+
+.tabletAndBelow({
+ 	.topNav__left, .topNav__right {
+ 		width: 80px;
+ 	}
+ 	.topNav__right {
+ 		padding: 0px;
+ 		> a {
+ 			border-left: none;
+ 		}
+ 	}
+});
+
+.topNav__menu--tablet {
+	display: table;
+	width: 100%;
+	line-height: @nav-height;
+	// position: relative;
+}
+
+.topNav__menu--tablet__name {
+	cursor: pointer;
+	width: 100%;
+	text-align: center;
+	font-size: 1.1em;
+	> i {
+		position: absolute;
+		line-height: @nav-height;
+		margin-left: 1em;
+	}
+}
+
+.topNav__menu--tablet__dropdown {
+	position: absolute;
+	top: @nav-height;
+	background: @white;
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.15);
+	width: auto;
+	border-top: @global-border;
+	// transition: top @default-duration @default-easing;
+	// TODO: render transition (hide dropdown using top and opacity propety instead)
+	.center-align();
+	li {
+		list-style: none;
+		width: 100%;
+		line-height: @nav-height;
+		text-align: center;
+	}
+	li > a {
+		font-size: 1.1em;
+		color: @nav-color;
+		white-space: nowrap;
+		width: 100%;
+		display: block;
+		padding-left: @relative15px;
+		padding-right: @relative15px;
+	}
+	li > a:active {
+		color: @nav-active-color;
+		box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.05);
+	}
+}
+
+.name-component {
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-right: 1px solid gray;
+}
+
+.nav-logo-full {
+    //background-image: url('/oneanalytix/assets/MAYBANK_ID_BW.png') !important;
+    background-size: 130px auto !important;
+	font-weight: bold;
+}
+
+.nav.navbar-nav.ml-auto {
+    margin-top: 0px;
+}
+
+.log-out-btn {
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+
+.profileMenuDiv {
+    display: inline-block;
+    height: @nav-height;
+    vertical-align: middle;
+
+    .user-image-nav-com {
+        display: inline-block;
+        position: relative;
+        margin: 0 auto;
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+        //border: @global-border;
+        border-radius: 20px;
+        cursor: pointer;
+
+        img {
+            width: 40px;
+            height: auto;
+            min-width: 100%;
+            max-width: none;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            vertical-align: top;
+            border-radius: 20px;
+        }
+    }
+
+    .username-div {
+        display: inline-block;
+        padding-right: 20px;
+        padding-left: 20px;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        line-height:@nav-height;
+
+        i {
+            margin: 10px;
+        }
+    }
+}
+
+.navbar {
+    border-radius: 0px;
+}

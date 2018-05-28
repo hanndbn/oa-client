@@ -1,0 +1,44 @@
+/*----------------------------------------------------------------------------
+     This file serves as the entry point for all less files in this project
+-----------------------------------------------------------------------------*/
+
+@import "../../node_modules/normalize.css/normalize.css";
+
+//icon fonts
+//@import "../../node_modules/font-awesome/less/font-awesome.less"; //todo: replace font-awesome with fontastic.me
+@import "../baseStyles/campaignTypeFonts.import.less";
+
+//custom defined base classes, variables and mixins
+@import "../baseStyles/variables.import.less";
+@import "../baseStyles/base.import.less";
+@import "../baseStyles/mixin.import.less";
+
+//semantic UI imports
+& { @import '../../node_modules/semantic-ui-less/definitions/collections/message'; }
+& { @import '../../node_modules/semantic-ui-less/definitions/elements/container'; }
+& { @import '../../node_modules/semantic-ui-less/definitions/elements/input'; }
+& { @import '../../node_modules/semantic-ui-less/definitions/elements/button'; }
+& { @import '../../node_modules/semantic-ui-less/definitions/elements/loader'; }
+& { @import '../../node_modules/semantic-ui-less/definitions/modules/dropdown'; }
+& { @import '../../node_modules/semantic-ui-less/definitions/collections/form'; }
+//& { @import '../../node_modules/semantic-ui-less/definitions/elements/icon'; }
+// & { @import '../../node_modules/semantic-ui-less/definitions/modules/popup.less'; }
+
+//react-datepicker
+@import "../../node_modules/react-datepicker/dist/react-datepicker.css";
+@import "../../node_modules/react-datepicker-oev/dist/react-datepicker-oev.css";
+
+//components
+@import "../components/layout/layout.import.less";
+@import "../components/topNav/topNav.import.less";
+@import "../components/layout/sideBar/sideBar.import.less";
+@import "../components/topNav/profileMenu/profileMenu.import.less";
+@import "../components/notFound/notFound.import.less";
+@import "../components/noPermission/noPermission.import.less";
+@import "../components/login/login.import.less";
+@import "../components/layout/footer/footer.import.less";
+
+@import "../components/alert/alert.import.less";
+
+// page
+@import "../components/page/codeManager/codeManager.import.less";

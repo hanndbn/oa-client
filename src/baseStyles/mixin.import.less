@@ -1,0 +1,111 @@
+//center align 
+.center-align() {
+	margin-left: auto;
+	margin-right: auto;
+	left: 0px;
+	right: 0px;
+}
+
+//clear floats
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//add ... when text overflows on single line
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+//media rules
+.mobileOnly(@rules) {
+  @media only screen and (max-width: @mobile-bp-max) { @rules(); }
+}
+.tabletOnly(@rules) {
+  @media only screen and (min-width: @tablet-bp) and (max-width: @tablet-bp-max) { @rules(); }
+}
+.computerOnly(@rules) {
+  @media only screen and (min-width: @computer-bp) and (max-width: @computer-bp-max) { @rules(); }
+}
+.largeMonitorOnly(@rules) {
+  @media only screen and (min-width: @large-monitor-bp) and (max-width: @large-monitor-bp-max) { @rules(); }
+}
+.wideScreenOnly(@rules) {
+  @media only screen and (min-width: @wide-screen-bp) { @rules(); }
+}
+
+.tabletAndBelow(@rules) {
+  @media only screen and (max-width: @tablet-bp-max) { @rules(); }
+}
+.tabletAndAbove(@rules) {
+  @media only screen and (min-width: @computer-bp) { @rules(); } 
+}
+// .computerAndBelow(@rules) {
+//   @media only screen and (max-width: @computer-bp-max) { @rules(); }
+// }
+// .largeMonitorAndBelow(@rules) {
+//   @media only screen and (max-width: @large-monitor-bp-max) { @rules(); }
+// }
+
+//helpers
+.hidden-tablet-and-below {
+  .tabletAndBelow({
+    display: none !important;
+  });
+}
+.hidden-tablet-and-above {
+  .tabletAndAbove({
+    display: none !important;
+  });
+}
+
+// .input() {
+//   margin: 0px;
+//   width: 100%;
+//   outline: none;
+//   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+//   text-align: left;
+//   padding: @input-vertical-padding @input-horizontal-padding;
+//   background-color: @white;
+//   border: @global-border;
+//   color: @input-color;
+//   border-radius: @global-radius;
+//   transition: all @default-duration @default-easing;
+//   box-shadow: @input-shadow;
+
+//   &[disabled] {
+//     opacity: 0.5;
+//   }
+// }
+
+.oneline-text-wrap {
+  white-space: nowrap;;
+}
+.multline-text-wrap {
+  white-space: normal;;
+}
+
+.disable-click-div {
+  pointer-events: none;
+}
+
+.disable-click-modal {
+  .modal-header {    
+    pointer-events: none;
+  }
+  .modal-body {    
+    pointer-events: none;
+  }
+  .modal-footer {
+    pointer-events: none;
+  }
+}

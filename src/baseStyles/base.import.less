@@ -1,0 +1,446 @@
+/*******************************
+             Reset
+*******************************/
+
+/* Border-Box */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+/* iPad Input Shadows */
+input[type="text"], input[type="email"], input[type="search"], input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: none; /* mobile firefox too! */
+}
+
+/*******************************
+         Base Styles
+*******************************/
+html {
+  font-size: @global-font-size;
+}
+
+body {
+  background-color: @body-background;
+  color: @body-font-color;
+  font-size: @global-font-size;
+  font-family: @body-font-family;
+  line-height: 1.5;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
+}
+
+html, body, div#react, div#react > div {
+  height: 100%;
+  overflow: auto;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  &, &:hover, &:active, &:focus, &:visited {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+}
+
+//basic container style (TODO: wrap in OA wrapper)
+.box {
+  background-color: @white;
+  border-radius: @global-radius;
+  border: @global-border;
+  position: relative;
+}
+
+//wrap all generic classes in oa class to avoid name clashes
+.oa {
+  //OA grid. Follows bootstrap concept.
+  &.row {
+    margin-left: -@global-padding;
+    margin-right: -@global-padding;
+    .clearfix();
+  }
+  .col-6 {
+    float: left;
+    width: 50%;
+    padding-left: @global-padding;
+    padding-right: @global-padding;
+  }
+}
+
+// Loader
+.loader-alone {
+  margin-top: 20px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+// align
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+// new css from wire frame
+.left-box {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+
+.right-box {
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+}
+
+.divider {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  bottom: 10%;
+  border-left: 2px solid black;
+}
+
+.left-border {
+  border-left: 2px solid black;
+}
+
+.oa-box-container {
+  padding: 5px;
+}
+
+.oa-box-container .oa-box-sub-container {
+  border: 1px solid grey;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px grey;
+}
+
+.oa-box-container .table-box {
+  position: relative;
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+
+  th {
+    vertical-align: middle;
+    min-height: 30px;
+  }
+
+  min-height: 120px;
+}
+
+.oa-box-container .title {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 13px;
+  border-bottom: 1px solid gray;
+  padding-left: 5px;
+  background-color: @global-background;
+  box-shadow: 0px 1px 0px 0px #aeaeae;
+}
+
+
+.oa-box-container .body {
+  position: relative;
+  padding: 3px;
+}
+
+.oa-box-container.non-padding {
+  padding: 0px;
+}
+
+.oa-box-container .non-padding td {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.oa-box-container .padding-03-rem td {
+  padding: 0.3rem;
+}
+
+.oa-box-container .non-row-border td {
+  border-top: none !important;
+}
+
+.oa-box-container .left-box {
+  padding-left: 5%;
+}
+
+.oa-box-container .right-box {
+  padding-left: 10%;
+}
+
+.oa-box-container table {
+  margin-bottom: 0px;
+}
+
+.up-icon {
+  width: 18px;
+  height: 18px;
+  background-image: url('/oneanalytix/assets/up-icon.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.down-icon {
+  width: 18px;
+  height: 18px;
+  background-image: url('/oneanalytix/assets/down-icon.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button-box {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.button-box button{
+  margin: 5px;
+}
+
+#sandbox-container-from {
+  display: inline-block;
+}
+
+#sandbox-container-to {
+  display: inline-block;
+}
+
+#sandbox-container-from .icon-th {
+  margin-top: -5px;
+}
+
+#sandbox-container-to .icon-th {
+  margin-top: -5px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.oa-nav-bar-button {
+  position: relative;
+  top: 6px;
+  display: inline-block;
+  float: right;
+}
+
+.oa-nav-bar-button button {
+  margin-right: 4px;
+}
+
+.non-padding {
+  /*padding: 0px;*/
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.bottom-line {
+  display: block;
+  position: relative;
+  width: 30%;
+  height: 1px;
+  background-color: black;
+  margin: 10px auto;
+}
+
+.oa-date-picker {
+  position: relative;
+  display: inline-block;
+  padding-right: 20px;
+}
+
+.oa-date-picker input {
+  width: 105px;
+  vertical-align: top;
+  height: 25px;
+}
+
+.oa-date-picker i {
+  position: absolute;
+  top: 0px;
+  right: 24px;
+  pointer-events: none;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.none-pointer-events {
+  pointer-events: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.custom-box-1 {
+  width: 100%;
+  display: flex;
+}
+
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+// sort table
+
+.sorted-table {
+  th {
+    position: relative;
+  }
+  .table-th__sort-ascending {
+    cursor: pointer;
+    padding-right: 30px;
+  }
+  .table-th__sort-descending {
+    cursor: pointer;
+    padding-right: 30px;
+  }
+  .table-th__sort {
+    cursor: pointer;
+    padding-right: 30px;
+  }
+}
+.table-th__sort-ascending {
+  padding-right: 30px;
+}
+.table-th__sort-ascending::after {
+  background-image: url('/oneanalytix/assets/sort_ase.png') !important;
+  background-repeat: no-repeat;
+  background-position: center right;
+  position: absolute;
+  display: block;
+  content: "";
+  top: 0px;
+  right: 2px;
+  width: 30px;
+  height: 100%;
+}
+
+.table-th__sort-descending {
+  padding-right: 30px;
+}
+.table-th__sort-descending::after {
+  background-image: url('/oneanalytix/assets/sort_des.png') !important;
+  background-repeat: no-repeat;
+  background-position: center right;
+  position: absolute;
+  display: block;
+  content: "";
+  top: 0px;
+  right: 2px;
+  width: 30px;
+  height: 100%;
+}
+
+.table-th__sort {
+  padding-right: 30px;
+}
+.table-th__sort::after {
+  background-image: url('/oneanalytix/assets/sort.png') !important;
+  background-repeat: no-repeat;
+  background-position: center right;
+  position: absolute;
+  display: block;
+  content: "";
+  top: 0px;
+  right: 2px;
+  width: 30px;
+  height: 100%;
+  opacity: 0.3;
+}
+
+.point-event-none {
+  pointer-events: none;
+}
+
+.sidebar .nav .nav-item .nav-link.active, .sidebar .nav .nav-item .navbar .active.dropdown-toggle, .navbar .sidebar .nav .nav-item .active.dropdown-toggle{
+  color: rgba(0, 0, 0, 0.87);
+  background: #f0d997;
+}
+
+.btn-outline-warning{
+  color: black;
+}
+
+
+.sidebar .nav .nav-item .nav-link, .sidebar .nav .nav-item .navbar .dropdown-toggle, .navbar .sidebar .nav .nav-item .dropdown-toggle{
+  color: #000;
+  font-weight: bold;
+  border-bottom: 1px solid #f0d997;
+}
+
+
+
+.btn-primary{
+  background-color: @global-background !important;
+  border-color: white !important;
+  color: black !important;
+  box-shadow: 1px 1px 3px grey;
+}
+.pagination li a{
+  //background-color : @global-background !important;
+  color : black !important;
+  border-color: @global-background !important;
+
+  //background-color : gray !important;
+}
+.pagination li.active a{
+  background-color : @global-background !important;
+}
+
+svg{
+  fill: @global-background !important;
+}
+
+
+
+.sidebar-fixed .sidebar{
+
+  box-shadow: 2px 2px 2px #abaaa8 !important;
+  border-top: 2px solid #f0d997 !important;
+  color: #ffbc00 !important;
+  background: #fefefe !important;
+  overflow: scroll;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear
+{
+  display: none;
+}
