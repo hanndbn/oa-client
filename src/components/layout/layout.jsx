@@ -33,7 +33,7 @@ const Layout = function (props) {
                                              {/*transitionLeave={false}>*/}
                     <div className="cover-div">
                         {props.children}
-                        <Footer/>
+                        {/*<Footer/>*/}
                     </div>
                     {/*</ReactCSSTransitionGroup>*/}
                     {

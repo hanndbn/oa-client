@@ -11,6 +11,11 @@ export const SOCKET_URL = 'http://localhost:9092';
 
 // Authentication
 export const CONST_SERVICE_URL_LOGIN 									= WEBSERVICE_URL + '/CheckLoginAdmin';
+export const CONST_SERVICE_URL_GET_CODE 							    = WEBSERVICE_URL + '/GetListCode';
+
+
+
+
 export const CONST_SERVICE_URL_LOGOUT 									= WEBSERVICE_URL + '/api/logout';
 export const CONST_SERVICE_URL_CHECK_VERSION_NO 						= WEBSERVICE_URL + '/api/versionNo';
 
