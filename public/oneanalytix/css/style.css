@@ -2141,28 +2141,6 @@ tbody.collapse.show {
   overflow: hidden;
   transition: height 0.35s ease; }
 
-.dropup,
-.dropdown {
-  position: relative; }
-
-.dropdown-toggle::after {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 0.3em;
-  vertical-align: middle;
-  content: "";
-  border-top: 0.3em solid;
-  border-right: 0.3em solid transparent;
-  border-left: 0.3em solid transparent; }
-
-.dropdown-toggle:empty::after {
-  margin-left: 0; }
-
-.dropup .dropdown-toggle::after {
-  border-top: 0;
-  border-bottom: 0.3em solid; }
-
 .dropdown-menu {
   position: absolute;
   top: 100%;

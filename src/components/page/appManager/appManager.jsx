@@ -2,66 +2,50 @@ import React from "react";
 import {connect} from "react-redux";
 let {Component} = React;
 import request from 'request';
-import * as codeManagerActions from "./codeManagerActions.js";
-import * as appManagerActions from "../appManager/appManagerActions.js";
-import {Modal, Button, DropdownButton, MenuItem} from "react-bootstrap";
-
+import * as appManagerActions from "./appManagerActions.js";
+import {Modal, Button} from "react-bootstrap";
 /**********************************************************************************************************************/
-class CodeManager extends Component {
+class AppManager extends Component {
     componentWillMount() {
         this.props.init();
     }
 
-    editCode(){
-        let code = "";
-        let newCode= "";
+    editApp(){
+        let app = "";
+        let newApp= "";
         if(this.props.modalType == 'A'){
-            code = this.refs.code.value.trim();
+            app = this.refs.app.value.trim();
         }else if(this.props.modalType == 'E'){
-            code = this.refs.code.value.trim();
-            newCode = this.refs.newCode.value.trim();
+            app = this.refs.app.value.trim();
+            newApp = this.refs.newApp.value.trim();
         }else{
-            code = this.props.currentCode;
+            app = this.props.currentApp;
         }
-        this.props.editCode(code, newCode, this.props.modalType);
+        this.props.editApp(app, newApp, this.props.modalType);
     }
-    showModal(code, modalType){
-        this.props.setCurrentCode(code);
+    showModal(app, modalType){
+        this.props.setCurrentApp(app);
         this.props.setModalType(modalType);
     }
     render() {
         return (
             <div>
-                <div className="bg-info">Code Manger</div>
+                <div className="bg-info">App Manger</div>
                 <div className="container">
                     <div className="row">
                         <div className="form-group w-100 action-panel">
-                            <div className="col-2 d-inline-block no-gutters">
-                                <DropdownButton
-                                    bsStyle="primary"
-                                    title={this.props.currentCode ? this.props.currentCode.app :  "Choose App Id"}
-                                    key="123"
-                                    id="123"
-                                >
-                                    {
-                                        this.props.appList.map((data, idx)=>{
-                                        return <MenuItem key={idx} eventKey={idx} onClick={()=>this.props.setCurrentCode({id: data.id, app: data.app})}>{data.app}</MenuItem>
-                                    })}
-                                </DropdownButton>
-                            </div>
-
                             <div className="col-6 d-inline-block no-gutters">
                                 <input className="form-control d-inline" ref="searchTxt"/>
                             </div>
-                            <div className="col-4 d-inline-flex">
-                                <button className="btn btn-primary btn-xs pull-right" onClick={()=>this.props.searchCode(this.refs.searchTxt.value.trim())}>Search</button>
+                            <div className="col-6 d-inline-flex">
+                                <button className="btn btn-primary btn-xs pull-right" onClick={()=>this.props.searchApp(this.refs.searchTxt.value.trim())}>Search</button>
                                 <button className="btn btn-primary btn-xs pull-right" onClick={()=>this.props.setModalType("A")}>Add New</button>
                             </div>
                         </div>
                         <table id="mytable" className="table table-bordred table-striped">
                             <thead>
                             <th>STT</th>
-                            <th>Code</th>
+                            <th>App</th>
                             <th>Date Created</th>
                             <th>Last Updated</th>
                             <th>Number Used</th>
@@ -69,10 +53,10 @@ class CodeManager extends Component {
                             </thead>
                             <tbody>
                             {
-                                this.props.codeList.map((data, idx)=>{
+                                this.props.appList.map((data, idx)=>{
                                     return <tr key={idx}>
                                         <td>{idx + 1}</td>
-                                        <td>{data.code}</td>
+                                        <td>{data.app}</td>
                                         <td>{data.timeCreated}</td>
                                         <td>{data.lastUpdated}</td>
                                         <td></td>
@@ -80,11 +64,11 @@ class CodeManager extends Component {
                                         <td>
                                             <div className="d-inline">
                                                 <p className="col-6 d-inline" data-placement="top" data-toggle="tooltip" title="Edit">
-                                                    <button className="btn btn-warning btn-xs" onClick={()=>this.showModal(data.code, "E")}><span className="glyphicon glyphicon-pencil"/>
+                                                    <button className="btn btn-warning btn-xs" onClick={()=>this.showModal(data.app, "E")}><span className="glyphicon glyphicon-pencil"/>
                                                     </button>
                                                 </p>
                                                 <p className="col-6 d-inline" data-placement="top" data-toggle="tooltip" title="Delete">
-                                                    <button className="btn btn-danger btn-xs" onClick={()=>this.showModal(data.code, "D")}><span
+                                                    <button className="btn btn-danger btn-xs" onClick={()=>this.showModal(data.app, "D")}><span
                                                         className="glyphicon glyphicon-trash"/></button>
                                                 </p>
                                             </div>
@@ -96,38 +80,38 @@ class CodeManager extends Component {
                         </table>
                     </div>
                 </div>
-                <Modal show={this.props.showModal} onHide={()=>this.props.setShowModal(false)}>
+                   <Modal show={this.props.showModal} onHide={()=>this.props.setShowModal(false)}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Add Sharing Code</Modal.Title>
+                        <Modal.Title>Add Sharing App</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         {this.props.errorMsgModal ? <div className="alert-danger">{this.props.errorMsgModal}</div> : ""}
                         {
                             (this.props.modalType == 'A') ?
                                 <div className="form-group">
-                                    <label htmlFor="code">Code</label>
-                                    <input id="code" className="form-control" ref="code"/>
+                                    <label htmlFor="app">App</label>
+                                    <input id="app" className="form-control" ref="app"/>
                                 </div>
                                 :
                                 this.props.modalType == 'E' ?
                                     <div>
                                         <div className="form-group">
-                                            <label htmlFor="code">Code</label>
-                                            <input id="code" className="form-control" value={this.props.currentCode} disabled={true} ref="code"/>
+                                            <label htmlFor="app">App</label>
+                                            <input id="app" className="form-control" value={this.props.currentApp} disabled={true} ref="app"/>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="code">New Code</label>
-                                            <input id="newCode" className="form-control" ref="newCode"/>
+                                            <label htmlFor="app">New App</label>
+                                            <input id="newApp" className="form-control" ref="newApp"/>
                                         </div>
                                     </div>
                                 :
                                 <div>
-                                    Do you want delete this code?
+                                    Do you want delete this app?
                                 </div>
                         }
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button className="btn btn-primary" onClick={()=>{this.editCode()}}>{this.props.modalType == 'E' ? 'Save': this.props.modalType == 'D' ? 'Delete' : 'Add'}</Button>
+                        <Button className="btn btn-primary" onClick={()=>{this.editApp()}}>{this.props.modalType == 'E' ? 'Save': this.props.modalType == 'D' ? 'Delete' : 'Add'}</Button>
                         <Button className="btn btn-danger" onClick={()=>this.props.setShowModal(false)}>Close</Button>
                     </Modal.Footer>
                 </Modal>
@@ -142,42 +126,37 @@ class CodeManager extends Component {
 const mapStateToProps = (state, ownProps) => {
     // console.log("state:", state.rlRequest);
     return {
-        errorMsg: state.codeManager.errorMsg,
-        errorMsgModal: state.codeManager.errorMsgModal,
-        isShowLoader: state.codeManager.isRequestingLogin,
-        codeList: state.codeManager.codeList,
+        errorMsg: state.appManager.errorMsg,
+        errorMsgModal: state.appManager.errorMsgModal,
+        isShowLoader: state.appManager.isRequestingLogin,
         appList: state.appManager.appList,
-        showModal: state.codeManager.showModal,
-        modalType: state.codeManager.modalType,
-        currentCode: state.codeManager.currentCode,
-        currentApp: state.codeManager.currentApp,
+        showModal: state.appManager.showModal,
+        modalType: state.appManager.modalType,
+        currentApp: state.appManager.currentApp,
     }
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         init: () => {
-            dispatch(codeManagerActions.setCurrentCode(""));
-            dispatch(codeManagerActions.requestCodeList());
             dispatch(appManagerActions.requestAppList());
         },
-        searchCode: (searchTxt) => {
-            dispatch(codeManagerActions.requestCodeList(searchTxt));
+        searchApp: (searchTxt) => {
+            dispatch(appManagerActions.requestAppList(searchTxt));
         },
         setShowModal: (showModal)=>{
-            dispatch(codeManagerActions.setShowModal(showModal));
+            dispatch(appManagerActions.setShowModal(showModal));
         },
         setModalType: (modalType)=>{
-            dispatch(codeManagerActions.setModalType(modalType));
-            dispatch(codeManagerActions.setShowModal(true));
+            dispatch(appManagerActions.setModalType(modalType));
+            dispatch(appManagerActions.setShowModal(true));
         },
-        setCurrentCode: (currentCode)=>{
-            dispatch(codeManagerActions.setCurrentCode(currentCode));
-            dispatch(codeManagerActions.requestCodeList(currentCode.app));
+        setCurrentApp: (currentApp)=>{
+            dispatch(appManagerActions.setCurrentApp(currentApp));
         },
-        editCode: (code, newCode, modalType)=>{
-            dispatch(codeManagerActions.requestEditCode(code, newCode, modalType));
+        editApp: (app, newApp, modalType)=>{
+            dispatch(appManagerActions.requestEditApp(app, newApp, modalType));
         }
     };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(CodeManager);
+export default connect(mapStateToProps, mapDispatchToProps)(AppManager);

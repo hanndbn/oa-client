@@ -1,6 +1,7 @@
 //import all your reducers here and combine them
 import loginReducer from "../components/login/loginReducer.js";
 import codeManagerReducer from "../components/page/codeManager/codeManagerReducer.js";
+import appManagerReducer from "../components/page/appManager/appManagerReducer.js";
 import {REHYDRATE} from "redux-persist/lib/constants";
 
 
@@ -58,6 +59,7 @@ const appReducer = function(state={}, action) {
 		login: loginReducer(state.login, action),
 		// alerts: alertReducer(state.alerts, action),
         codeManager: codeManagerReducer(state.codeManager, action),
+        appManager: appManagerReducer(state.appManager, action),
 	}
 
 

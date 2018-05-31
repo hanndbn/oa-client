@@ -11,6 +11,7 @@ import LoginContainer from "../components/login/loginContainer.jsx";
 import NotFound from "../components/notFound/notFound.jsx";
 import NoPermission from "../components/noPermission/noPermission.jsx";
 import codeManager from "../components/page/codeManager/codeManager.jsx";
+import appManager from "../components/page/appManager/appManager.jsx";
 import {CONSTANTS} from "./constant.js";
 /**********************************************************************************************************************/
 
@@ -30,6 +31,7 @@ export default (
                 {/*<Route path={CONSTANTS.PRE_PATH+"/Dashboard"} component={requireAuth(Dashboard)} key="Dashboard"/>*/}
                 {/*<Route path={CONSTANTS.PRE_PATH+"/NewOARequest"} component={requireAuth(CreateOARequest, CONSTANTS.MODULE_ID.RL_REQUEST, ['add', 'change'])} key="NewOARequest"/>*/}
                 <Route path={CONSTANTS.PRE_PATH+"/CodeManager"} component={codeManager} key="codeManager"/>
+                <Route path={CONSTANTS.PRE_PATH+"/AppManager"} component={appManager} key="appManager"/>
                 {/*<Route path={CONSTANTS.PRE_PATH+"/OARecommendation"} component={requireAuth(RecommendationList, CONSTANTS.MODULE_ID.OA_RECOMMENDATION)} key="OARecommendation"/>*/}
                 {/*<Route path="OfferManagement" component={requireAuth(OfferManagement)} key="OfferManagement"/>*/}
                 {/*<Route path="OfferList" component={requireAuth(OfferList)} key="OfferList"/>*/}
