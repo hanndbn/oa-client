@@ -1,5 +1,6 @@
 import {browserHistory} from "react-router";
 import {CONST_SERVICE_URL_GET_APP, CONST_SERVICE_URL_EDIT_APP} from "../../../app/serviceConstants.js";
+import * as codeManagerActions from "../../../components/page/codeManager/codeManagerActions";
 import {sendRequestToServer} from "../../../utils/helper.js";
 import {Messages} from '../../../app/messages.js';
 import {CONSTANTS} from '../../../app/constant.js';
@@ -68,6 +69,10 @@ export function requestAppList(txtSearch) {
         let requestSuccess = (res) => {
             if(res.responseCode == '00'){
                 dispatch(requestGetAppSuccess(res.data));
+                if(res.data.length > 0){
+                    dispatch(setCurrentApp(res.data[0]['id']));
+                    dispatch(codeManagerActions.requestCodeList();
+                }
             } else{
                 dispatch(requestGetAppFailure(res.errorMessage));
             }

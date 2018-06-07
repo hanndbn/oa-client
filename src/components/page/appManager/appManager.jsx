@@ -45,7 +45,8 @@ class AppManager extends Component {
                         <table id="mytable" className="table table-bordred table-striped">
                             <thead>
                             <th>STT</th>
-                            <th>App</th>
+                            <th>App ID</th>
+                            <th>App Name</th>
                             <th>Date Created</th>
                             <th>Last Updated</th>
                             <th>Number Used</th>
@@ -56,6 +57,7 @@ class AppManager extends Component {
                                 this.props.appList.map((data, idx)=>{
                                     return <tr key={idx}>
                                         <td>{idx + 1}</td>
+                                        <td>{data.id}</td>
                                         <td>{data.app}</td>
                                         <td>{data.timeCreated}</td>
                                         <td>{data.lastUpdated}</td>

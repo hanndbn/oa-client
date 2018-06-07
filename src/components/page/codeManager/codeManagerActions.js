@@ -84,7 +84,8 @@ export function requestCodeList(txtSearch) {
             dispatch(requestGetCodeFailure(Messages.DEFAULT_ERR_MESSAGE));
         };
         let req = {
-            txtSearch : txtSearch ? txtSearch : ""
+            txtSearch : txtSearch ? txtSearch : "",
+            //app:
         };
         sendRequestToServer(CONST_SERVICE_URL_GET_CODE, "POST", req, requestSuccess, requestFailure, dispatch);
     }

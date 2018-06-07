@@ -158,7 +158,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         init: () => {
             dispatch(codeManagerActions.setCurrentCode(""));
-            dispatch(codeManagerActions.requestCodeList());
+            //dispatch(codeManagerActions.requestCodeList());
             dispatch(appManagerActions.requestAppList());
         },
         searchCode: (searchTxt) => {
