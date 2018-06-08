@@ -45,6 +45,14 @@ export function setShowModal(showModal) {
         showModal: showModal
     }
 }
+export const SET_SHOW_DETAIL_MODAL = 'codeManager/SET_SHOW_DETAIL_MODAL';
+export function setShowDetailModal(showDetailModal) {
+    return {
+        type: SET_SHOW_DETAIL_MODAL,
+        showDetailModal: showDetailModal
+    }
+}
+
 export const SET_MODAL_TYPE = 'codeManager/SET_MODAL_TYPE';
 export function setModalType(modalType) {
     return {
@@ -65,13 +73,13 @@ export const SET_CURRENT_APP = 'codeManager/SET_CURRENT_APP';
 export function setCurrentApp(currentApp) {
     return {
         type: SET_CURRENT_APP,
-        currentCode: currentApp
+        currentApp: currentApp
     }
 }
 
 //use thunk middleware in reducer for this to work
 export function requestCodeList(txtSearch) {
-    return (dispatch) => {
+    return (dispatch, getState) => {
         dispatch(requestGetCode());
         let requestSuccess = (res) => {
             if(res.responseCode == '00'){
@@ -85,7 +93,7 @@ export function requestCodeList(txtSearch) {
         };
         let req = {
             txtSearch : txtSearch ? txtSearch : "",
-            //app:
+            appId: getState().codeManager.currentApp ? getState().codeManager.currentApp.id : ""
         };
         sendRequestToServer(CONST_SERVICE_URL_GET_CODE, "POST", req, requestSuccess, requestFailure, dispatch);
     }
@@ -93,7 +101,7 @@ export function requestCodeList(txtSearch) {
 
 //use thunk middleware in reducer for this to work
 export function requestEditCode(code, newCode, modalType) {
-    return (dispatch) => {
+    return (dispatch, getState) => {
         //dispatch(requestGetCode());
         let requestSuccess = (res) => {
             if(res.responseCode == '00'){
@@ -113,8 +121,9 @@ export function requestEditCode(code, newCode, modalType) {
         };
         let req = {
             "code": code,
+            "appId": getState().codeManager.currentApp ? getState().codeManager.currentApp.id : "",
             "newCode": newCode,
-            "action": modalType
+            "action": modalType,
         };
         sendRequestToServer(CONST_SERVICE_URL_EDIT_CODE, "POST", req, requestSuccess, requestFailure, dispatch);
     }

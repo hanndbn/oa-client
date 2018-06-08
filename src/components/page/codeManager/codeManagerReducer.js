@@ -13,6 +13,7 @@ const initialState = {
     errorMsgModal: "",
     currentCode: "",
     currentApp: "",
+    showDetailModal: true
 };
 
 const codeManagerReducer = (state=initialState, action) => {
@@ -28,6 +29,11 @@ const codeManagerReducer = (state=initialState, action) => {
             return _assignIn({}, state, {
                 errorMsgModal: '',
                 showModal: action.showModal
+            });
+        case codeManagerActions.SET_SHOW_DETAIL_MODAL:
+            return _assignIn({}, state, {
+                errorMsgModal: '',
+                showDetailModal: action.showDetailModal
             });
         case codeManagerActions.SET_MODAL_TYPE:
             return _assignIn({}, state, {

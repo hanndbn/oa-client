@@ -71,7 +71,7 @@ export function requestAppList(txtSearch) {
                 dispatch(requestGetAppSuccess(res.data));
                 if(res.data.length > 0){
                     dispatch(setCurrentApp(res.data[0]['id']));
-                    dispatch(codeManagerActions.requestCodeList();
+                    dispatch(codeManagerActions.requestCodeList());
                 }
             } else{
                 dispatch(requestGetAppFailure(res.errorMessage));
